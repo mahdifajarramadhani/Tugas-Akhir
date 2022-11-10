@@ -2,8 +2,17 @@
 
 namespace App\Controllers;
 
+use App\Models\ModelPengguna;
+
 class Auth extends BaseController
 {
+    protected $modelPengguna;
+
+
+    public function __construct()
+    {
+        $this->modelPengguna = new ModelPengguna();
+    }
     /**
      *------------------------------------------------------------------------------------
      *  GET Index Auth
@@ -30,6 +39,11 @@ class Auth extends BaseController
     public function post_login()
     {
         $input = $this->request->getPost();
-        dd($input);
+        $pengguan = $this->modelPengguna->getByEmail($input['email']);
+        if (empty($pengguan)) {
+            return redirect()->to('/auth/login');
+        }
+        d($input);
+        dd($pengguan);
     }
 }
