@@ -6,6 +6,7 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        $password = password_hash('admin', PASSWORD_DEFAULT);
+        dd($password);
     }
 }
