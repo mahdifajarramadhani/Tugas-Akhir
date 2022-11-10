@@ -20,6 +20,16 @@ class Auth extends BaseController
      */
     public function get_login()
     {
-        dd('halaman login');
+        return view('auth/login');
+    }
+    /**
+     *------------------------------------------------------------------------------------
+     *  POST Login, untuk masuk ke dalam aplikasi
+     *------------------------------------------------------------------------------------
+     */
+    public function post_login()
+    {
+        $input = $this->request->getPost();
+        dd($input);
     }
 }
