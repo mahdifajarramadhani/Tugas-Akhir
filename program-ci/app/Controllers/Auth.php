@@ -46,4 +46,5 @@ class Auth extends BaseController
         d($input);
         dd($pengguan);
     }
+    
 }
