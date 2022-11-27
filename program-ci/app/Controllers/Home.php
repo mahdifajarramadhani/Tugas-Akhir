@@ -26,3 +26,4 @@ class Home extends BaseController
         dd($this->pengguna);
     }
 }
+ 

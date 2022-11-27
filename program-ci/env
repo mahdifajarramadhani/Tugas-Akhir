@@ -139,9 +139,5 @@ database.default.DBDriver = MySQLi
 
 # curlrequest.shareOptions = true
 
-COPYRIGHT_NAME   = 'Mahdi Fajar Ramdhani'
-COPYRIGHT_URL    = 'https://github.com/mahdifajarramadhani/Tugas-Akhir'
-DEFAULT_TIMEZONE = 'Asia/Jakarta'
-BUILD_VERSION    = '1.0.0-alpha.1'
-THEME_COLOR      = 'info'
+
 

@@ -35,6 +35,9 @@
             </form>
         </div>
         <div class="card-footer">
+            <p class="text-center"><strong>Kamu tidak punya akun ?</strong><a href="register.php"></a></p>
+        </div>
+        <div class="card-footer">
             <p class="text-center"><strong>Dibuat oleh </strong> <a href="<?= env('COPYRIGHT_URL') ?>" target="_blank"><?= env('COPYRIGHT_NAME') ?></a></p>
         </div>
         <!-- /.login-card-body -->
