@@ -30,7 +30,7 @@ class Auth extends BaseController
     public function get_login()
     {
         if (!empty($this->session->get('pengguna'))) {
-            return redirect()->to('/home');
+            return redirect()->to('/dashboard');
         }
         return view('auth/login');
     }
@@ -62,7 +62,7 @@ class Auth extends BaseController
         ];
         $this->session->set($session_query);
         if (!empty($this->session->get('pengguna'))) {
-            return redirect()->to('/home');
+            return redirect()->to('/dashboard');
         }
         return redirect()->to('/auth/login');
     }
