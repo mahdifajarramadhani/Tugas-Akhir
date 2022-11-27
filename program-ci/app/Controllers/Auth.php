@@ -29,7 +29,20 @@ class Auth extends BaseController
      */
     public function get_login()
     {
+        if (!empty($this->session->get('pengguna'))) {
+            return redirect()->to('/home');
+        }
         return view('auth/login');
+    }
+    /**
+     *------------------------------------------------------------------------------------
+     *  GET Logout remove seso
+     *------------------------------------------------------------------------------------
+     */
+    public function get_logout()
+    {
+        $this->session->remove('pengguna');
+        return redirect()->to('/auth/login');
     }
     /**
      *------------------------------------------------------------------------------------
@@ -39,12 +52,18 @@ class Auth extends BaseController
     public function post_login()
     {
         $input = $this->request->getPost();
-        $pengguan = $this->modelPengguna->getByEmail($input['email']);
-        if (empty($pengguan)) {
+        $pengguna = $this->modelPengguna->getByEmail($input['email']);
+        if (empty($pengguna)) {
             return redirect()->to('/auth/login');
         }
-        d($input);
-        dd($pengguan);
+        $session_query = [
+            'pengguna' => $pengguna['id_pengguna'],
+            'login_at' => time(),
+        ];
+        $this->session->set($session_query);
+        if (!empty($this->session->get('pengguna'))) {
+            return redirect()->to('/home');
+        }
+        return redirect()->to('/auth/login');
     }
-    
 }
