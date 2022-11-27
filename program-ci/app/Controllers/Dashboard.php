@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class Dashboard extends BaseController
 {
     protected $pengguna;
     /**
@@ -17,13 +17,15 @@ class Home extends BaseController
     }
     /**
      *------------------------------------------------------------------------------------
-     *  INDEX dari Home Controller
+     *  INDEX dari Dashboard Controller
      *------------------------------------------------------------------------------------
      */
     public function index()
-    {
 
-        dd($this->pengguna);
+    {
+        $data = [
+            'judul_halaman' => 'Dasbor',
+        ];
+        return view('dashboard/index', $data);
     }
 }
- 
